@@ -15,17 +15,14 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
   }
 
   async query(options: DataQueryRequest<MyQuery>): Promise<DataQueryResponse> {
-    const { range } = options;
-    const from = range!.from.valueOf();
-    const to = range!.to.valueOf();
 
-    // Return a constant for each query.
+    // Return the current timestamp and a string (needed for annotation to show).
     const data = options.targets.map((target) => {
       return new MutableDataFrame({
         refId: target.refId,
         fields: [
-          { name: 'Time', values: [from, to], type: FieldType.time },
-          { name: 'Value', values: [target.constant, target.constant], type: FieldType.number },
+          { name: 'Time', values: [Date.now()], type: FieldType.time },
+          { name: 'String', values: ["Current Time"], type: FieldType.string},
         ],
       });
     });
