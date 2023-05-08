@@ -30,6 +30,9 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
     return { data };
   }
 
+  // Add support for annotation queries (>=7.2)
+  annotations = {};
+
   async testDatasource() {
     // Implement a health check for your data source.
     return {

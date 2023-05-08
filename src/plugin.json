@@ -4,6 +4,7 @@
   "name": "Current Time",
   "id": "dresco-currenttime-datasource",
   "metrics": true,
+  "annotations": true,
   "info": {
     "description": "Get current time",
     "author": {
